@@ -1,5 +1,5 @@
 Devise.setup do |config|
-  config.omniauth :google_oauth2, "727365344696-nat4c0ms5o5diogc2genk319qvi6hprq.apps.googleusercontent.com", "ERy8bDIAbdPQLvQM1kpdG8fZ", { }
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], { }
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   require 'devise/orm/active_record'
   config.case_insensitive_keys = [ :email ]
