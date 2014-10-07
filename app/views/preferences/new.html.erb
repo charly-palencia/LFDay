@@ -1,0 +1,14 @@
+<h1>New Preferences</h1>
+<%= form_for(@preference) do |f| %>
+  <div class="form-group">
+    <%= f.label :like %>
+    <%= f.text_area :like, :class => "form-control", :required => true, :rows => 5 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dislike %>
+    <%= f.text_area :dislike, :class => "form-control", :required => true, :rows => 5 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>
