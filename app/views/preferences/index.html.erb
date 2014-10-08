@@ -3,19 +3,19 @@
 <thead>
   <tr>
     <th>Player</th>
+    <th>Email</th>
     <th>Like</th>
     <th>Dislike</th>
-    <th>Email</th>
   </tr>
 </thead>
 <tbody>
 <% @preferences.each do |preference| %>
   <% user = User.find(preference.user_id) %>
   <tr>
+  <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td><%= preference.like %></td>
   <td><%= preference.dislike %></td>
-  <td><%= user.email %></td>
   </tr>
 <% end %>
 </tbody>
