@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Player, :type => :model do
   describe Player, "Mehtods" do
-    context "#play" do
+    describe "#play" do
       subject(:friend_secret) { Player.new.play(@current_user.id) }
       context "it should return name of my secret friend" do
         before(:each) do

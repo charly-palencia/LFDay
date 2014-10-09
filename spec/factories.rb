@@ -6,4 +6,10 @@ FactoryGirl.define do
     password_confirmation "1234567890"
     name "Test"
   end
+
+  factory :preference do
+    like "test for input of preferences of user like"
+    dislike "test for input of preferences of user - dislike"
+    user_id 1
+  end
 end

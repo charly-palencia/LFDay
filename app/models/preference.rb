@@ -1,4 +1,3 @@
 class Preference < ActiveRecord::Base
-  validates :like, presence: true
-  validates :dislike, presence: true
+  validates :like, :dislike, presence: true, length: { maximum: 255 }
 end
