@@ -14,7 +14,7 @@ class Player < ActiveRecord::Base
     ar_users = []
     ar_players = []
     players = Player.select("user_id_1")
-    users = User.select("id").where("id <> ?", @id_user)
+    users = User.find_other_player @id_user
     users.each{ |user| ar_users << user.id }
     players.each{ |player| ar_players << player.user_id_1 }
     result = ar_users - ar_players
@@ -26,11 +26,10 @@ class Player < ActiveRecord::Base
   def who_did_you_played
     name_user(find_user_by_id.user_id_2)
   end
-  private
-    def name_user(id)
-      User.find(id).email
-    end
-    def find_user_by_id
-      Player.find_by(user_id_1: @id_user)
-    end
+  def name_user(id)
+    User.find(id).name
+  end
+  def find_user_by_id
+    Player.find_by(user_id_1: @id_user)
+  end
 end

@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem "twitter-bootstrap-rails"
+gem "factory_girl_rails"
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end

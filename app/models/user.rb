@@ -1,6 +1,6 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+class User < ActiveRecord::Base  
+  scope :find_other_player, lambda { |user_id| select("id").where("id <> ?", user_id) }
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
