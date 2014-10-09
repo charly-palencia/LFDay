@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
   def play(id_user)
-    @id_user = id_user
+    set_id_user(id_user)
     return who_did_you_played if played?
     return false if available_users.empty?
     id_user_2 = available_users
@@ -31,5 +31,8 @@ class Player < ActiveRecord::Base
   end
   def find_user_by_id
     Player.find_by(user_id_1: @id_user)
+  end
+  def set_id_user(id_user)
+    @id_user = id_user    
   end
 end
