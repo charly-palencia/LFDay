@@ -10,9 +10,7 @@ class Player < ActiveRecord::Base
     name_user(id_user_2)
   end
   def available_users
-    result = []
-    ar_users = []
-    ar_players = []
+    result, ar_users, ar_players = [], [], []
     players = Player.select("user_id_1")
     users = User.find_other_player @id_user
     users.each{ |user| ar_users << user.id }
@@ -31,7 +29,7 @@ class Player < ActiveRecord::Base
   end
   def find_user_by_id
     Player.find_by(user_id_1: @id_user)
-  end
+  end     
   def set_id_user(id_user)
     @id_user = id_user    
   end
